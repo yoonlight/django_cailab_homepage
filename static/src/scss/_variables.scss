@@ -1,0 +1,9 @@
+$absol: absolute;
+$main-color: rgb(19, 9, 59);
+$main-font: 'Roboto', sans-serif;
+$font-color: white;
+@mixin box-shadow {box-shadow: 1px 4px 5px rgba(0, 0, 0, 0.2);}
+@mixin bar-style {width: 30px; height: 4px; background-color: $font-color;}
+@mixin flex-box {display: flex; flex-direction: column; justify-content: space-around;}
+@mixin basic-transition {transition: 200ms;}
+

@@ -1,0 +1,96 @@
+{% extends "layout.html" %}
+
+{% block link %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'src/scss/professor.css' %}" />
+{% endblock %}
+
+{% block header %}
+    <!-- header -->
+    <header>
+      <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark shadow">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="{% url 'main' %}">CAI LAB.</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav me-auto mb-2 mb-md-0">
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="{% url 'main' %}">Home</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle active" href="#" id="dropdown05" data-bs-toggle="dropdown" aria-expanded="false">People</a>
+                <ul class="dropdown-menu" aria-labelledby="dropdown05">
+                  <li><a class="dropdown-item" href="{% url 'professor' %}">Professor</a></li>
+                  <li><a class="dropdown-item" href="{% url 'student' %}">student</a></li>
+                  <li><a class="dropdown-item" href="{% url 'alumni' %}">alumni</a></li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="{% url 'publications' %}">Publications</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="{% url 'news' %}">news</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="{% url 'library' %}">Board</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link disabled">Disabled</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+{% endblock %}
+
+{% block body %}
+    <!-- head summary -->
+    <div id="head">
+        <div class="bg">
+            <div>
+                <h1 class="text">Professor</h1>
+            </div>
+        </div>
+    </div>
+
+    <!-- main -->
+    <div class="main-container">
+      <div>
+        <article>
+          <div class="main-contents">
+            <div class="img-container">
+              <img src="{% static 'images/professor_pic.jpeg' %}" height="300px">
+            </div>
+            <div class="brief-container">
+              <h2>김진영(Jin Young Kim)</h2>
+              <hr>
+              <p>
+                Dept. of Electronic Convergence Engineering, Kwangwoon University, Republic of Korea
+                <br>
+                email: jinyoung@kw.ac.kr
+                <br>
+                address: 611, chambich, 20, Gwangun-ro, Nowon-gu, Seoul, Republic of Korea <br>(서울시 노원구 광운로 20, 광운대학교 참빛관 610호)
+              </p>
+            </div>
+        </div>
+      </article>
+      </div>
+      <div>
+        <article class="brief-ariticle">
+          <div class="education-container">
+            <h2>Biography</h2>
+            <hr>
+          </div>
+          <div class="eduation-container">
+            <p> Jin Young Kim (M’95–SM’08) received the B. S., M. S., and Ph. D. degrees from the School of Electrical Engineering, Seoul National University (SNU), Seoul, Korea, in 1991, 1993, and 1998, respectively. He was Member of Research Staff at the Institute of New Media and Communications (INMC) and at the Inter-university Semiconductor Research Center (ISRC) of the SNU from 1994 to 1998. He was Postdoctoral Research Fellow at the Department of Electrical Engineering, Princeton University, NJ, U.S.A, from 1998 to 2000. He was Principal Member of Technical Staff at the Central Research and Development Center, SK Telecom, Korea, from 2000 to 2001. He is currently Full Professor at the School of Electronics Engineering, Kwangwoon University, Seoul, Korea. He had his sabbatical leave as Visiting Scientist at the LIDS (Laboratory of Information and Decision Systems), Massachusetts Institute of Technology (M.I.T), MA, U.S.A from 2009 to 2010.
+            </br></br>His research interests include artificial intelligence, design and implementation of wireline/wireless multimedia communication systems with basis on modulation/demodulation, synchronization, and detection/estimation theory. He received the Best Paper Awards from several academic conferences and societies including Jack Neubauer Best Systems Paper Award from IEEE VT Society (2001), the Award of Prime Minister of Korea Government (2011), He is now Senior Member of IEEE, Regular Member of IET and IEICE.
+            </p>
+          </div>
+        </article>
+      </div>
+    </div>
+    
+{% endblock %}

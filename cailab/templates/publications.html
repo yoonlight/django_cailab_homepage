@@ -1,0 +1,79 @@
+{% extends "layout.html" %}
+
+{% block link %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'src/scss/publications.css' %}" />
+{% endblock %}
+
+{% block header %}
+    <!-- header -->
+    <header>
+      <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark shadow">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="{% url 'main' %}">CAI LAB.</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav me-auto mb-2 mb-md-0">
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="{% url 'main' %}">Home</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="dropdown05" data-bs-toggle="dropdown" aria-expanded="false">People</a>
+                <ul class="dropdown-menu" aria-labelledby="dropdown05">
+                  <li><a class="dropdown-item" href="{% url 'professor' %}">Professor</a></li>
+                  <li><a class="dropdown-item" href="{% url 'student' %}">student</a></li>
+                  <li><a class="dropdown-item" href="{% url 'alumni' %}">alumni</a></li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link active" href="{% url 'publications' %}">Publications</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="{% url 'news' %}">news</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="{% url 'library' %}">Board</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link disabled">Disabled</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+{% endblock %}
+
+{% block body %}
+    <!-- head summary -->
+    <div id="head">
+        <div class="bg">
+            <div>
+                <h1 class="text">Publications</h1>
+            </div>
+        </div>
+    </div>
+
+    <main class="main-container">
+      <div class="publication-list-container">
+        <h3 class="SCI-title">International Journals (SCI)
+          <hr>
+        </h3>
+
+        {% for pub in data %}
+        <div>
+            <div class="publication-list">
+              <strong>{{forloop.counter}}.</strong> 
+              <span class="publication-content">{{pub}}</span>
+            </div>
+        </div>
+        {% endfor %}
+      </div>
+    </main>
+    
+    <!-- scripts -->
+    <script src="{% static 'js/slide.js' %}"></script>
+    <script src="{% static 'js/popup.js' %}"></script>
+{% endblock %}

@@ -1,0 +1,94 @@
+{% extends "layout.html" %}
+
+{% block link %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'src/scss/bio_detail.css' %}" />
+{% endblock %}
+
+{% block header %}
+    <!-- header -->
+    <header>
+      <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark shadow">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="{% url 'main' %}">CAI LAB.</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav me-auto mb-2 mb-md-0">
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="{% url 'main' %}">Home</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle active" href="#" id="dropdown05" data-bs-toggle="dropdown" aria-expanded="false">People</a>
+                <ul class="dropdown-menu " aria-labelledby="dropdown05">
+                  <li><a class="dropdown-item" href="{% url 'professor' %}">Professor</a></li>
+                  <li><a class="dropdown-item" href="{% url 'student' %}">student</a></li>
+                  <li><a class="dropdown-item" href="{% url 'alumni' %}">alumni</a></li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="{% url 'publications' %}">Publications</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="{% url 'news' %}">news</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="{% url 'library' %}">Board</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link disabled">Disabled</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+{% endblock %}
+
+{% block body %}
+    <!-- head summary -->
+    <div id="head">
+        <div class="bg">
+            <div>
+                <h1 class="text">Student</h1>
+            </div>
+        </div>
+    </div>
+
+    <!-- main -->
+    <div class="main-container">
+      <div>
+        <article>
+          <div class="main-contents">
+            <div class="img-container">
+              <img src="{{biography.images.url}}" height="300px">
+            </div>
+            <div class="brief-container">
+              <h2>{{biography.kr_name}}({{biography.eng_name}})</h2>
+              <hr>
+              <p>
+                Dept. of Electronic Convergence Engineering, Kwangwoon University, Republic of Korea
+                <br>
+                email: {{biography.email}}
+                <br>
+                address: 409, chambich, 20, Gwangun-ro, Nowon-gu, Seoul, Republic of Korea <br>(서울시 노원구 광운로 20, 광운대학교 참빛관 409호)
+              </p>
+            </div>
+        </div>
+      </article>
+      </div>
+      <div>
+        <article class="brief-ariticle">
+          <div class="education-container">
+            <h2>Biography</h2>
+            <hr>
+          </div>
+          <div class="eduation-container">
+            <p> {{biography.content}}
+            </p>
+          </div>
+        </article>
+      </div>
+    </div>
+{% endblock %}

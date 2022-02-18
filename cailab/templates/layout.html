@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Cailab</title>
+    {% load static %}
+    
+    <link href="{% static 'src/scss/form_example.css' %}" rel="stylesheet">
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'src/assets/dist/css/bootstrap.min.css' %}" rel="stylesheet">
+
+    <style>
+        img{pointer-events : none;}
+        .bd-placeholder-img {
+          font-size: 1.125rem;
+          text-anchor: middle;
+          -webkit-user-select: none;
+          -moz-user-select: none;
+          user-select: none;
+        }
+  
+        @media (min-width: 768px) {
+          .bd-placeholder-img-lg {
+            font-size: 3.5rem;
+          }
+        }
+        body{
+      font-family: "Helvetica Nene", Helvetica, Arial, "malgun gothic", sans-serif;
+      -webkit-touch-callout:none;
+      }
+    </style>
+    {% block link %}
+    {% endblock %}
+    <script type="text/javascript">
+      $(document).bind("contextmenu", function (e) {
+          return false;
+      });
+  </script>
+</head>
+<body>
+    {% block header %}{% endblock %}
+    {% block body %}{% endblock %}
+
+    <!-- FOOTER -->
+    <hr class="featurette-divider">
+    <footer class="container">
+        <p class="float-end"><a href="#">Back to top</a></p>
+        <p> &copy; 2022 CAI Lab., Kwangwoon University </p>
+        <p> <strong>Contact us</strong> <br> 김진영 교수(jinyoung@kw.ac.kr)<br> 서울시 노원구 광운로 20, 광운대학교 참빛관 610호</p>
+      </footer>
+    
+    <script src="{% static 'src/assets/dist/js/bootstrap.bundle.min.js' %}"></script>
+</body>
+</html>

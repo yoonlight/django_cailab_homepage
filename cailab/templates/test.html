@@ -1,0 +1,100 @@
+{% extends "layout.html" %}
+
+{% block link %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'src/scss/library.css' %}" />
+{% endblock %}
+
+{% block body %}
+    <!-- head summary -->
+    <div id="head">
+        <div class="bg">
+            <div>
+                <h1 class="text">Board</h1>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 게시판 -->
+    <div class="p-4 h-screen">
+        <h1 class="text-xl mb-2">orders</h1>
+        <table class="table">
+            <colgroup>
+                <col width="10%" />
+                <col width="60%" />
+                <col width="10%" />
+                <col width="20%" />
+            </colgroup>
+            <thead>
+                <tr class="thead-dark">
+                    <th>번호</th>
+                    <th>제목</th>
+                    <th>작성자ID</th>
+                    <th>작성일시</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% if posts %}
+                {% for post in posts %}
+                <tr>
+                    <td>
+                        {{post.id}}
+                    </td>
+                    <td>
+                        <a class="article-subject" href="{{ post.get_absolute_url }}">{{post.title}}</a>
+                    </td>
+                    <td>관리자</td>
+                    <td>{{post.createDate}}</td>
+                </tr>
+                {% endfor %}
+                {% else %}
+                <tr>
+                    <td colspan="3">질문이 없습니다. </td>
+                </tr>
+                {% endif %}
+            </tbody>
+        </table>
+
+    <!-- 페이징처리 시작 -->
+    <ul class="pagination justify-content-center">
+        <!-- 이전페이지 -->
+        {% if posts.has_previous %}
+        <li class="page-item">
+            <a class="page-link" href="?page={{ posts.previous_page_number }}">이전</a>
+        </li>
+        {% else %}
+        <li class="page-item disabled">
+            <a class="page-link" tabindex="-1" aria-disabled="true" href="#">이전</a>
+        </li>
+        {% endif %}
+        <!-- 페이지리스트 -->
+        {% for page_number in posts.paginator.page_range %}
+            {% if page_number == posts.number %}
+            <li class="page-item active" aria-current="page">
+                <a class="page-link" href="?page={{ page_number }}">{{ page_number }}</a>
+            </li>
+            {% else %}
+            <li class="page-item">
+                <a class="page-link" href="?page={{ page_number }}">{{ page_number }}</a>
+            </li>
+            {% endif %}
+        {% endfor %}
+        <!-- 다음페이지 -->
+        {% if posts.has_next %}
+        <li class="page-item">
+            <a class="page-link" href="?page={{ posts.next_page_number }}">다음</a>
+        </li>
+        {% else %}
+        <li class="page-item disabled">
+            <a class="page-link" tabindex="-1" aria-disabled="true" href="#">다음</a>
+        </li>
+        {% endif %}
+    </ul>
+    <!-- 페이징처리 끝 -->
+
+    <!-- 새글 작성 버튼 -->
+    <div class="btn-container">
+        <a href="" class="btn-create" type="button">새글 작성하기</a>
+    </div>
+    </div>
+{% endblock %}

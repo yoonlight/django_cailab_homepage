@@ -1,0 +1,89 @@
+{% extends "layout.html" %}
+
+{% block link %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'src/scss/news.css' %}" />
+{% endblock %}
+
+{% block header %}
+    <!-- header -->
+    <header>
+      <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark shadow">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="{% url 'main' %}">CAI LAB.</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav me-auto mb-2 mb-md-0">
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="{% url 'main' %}">Home</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="dropdown05" data-bs-toggle="dropdown" aria-expanded="false">People</a>
+                <ul class="dropdown-menu" aria-labelledby="dropdown05">
+                  <li><a class="dropdown-item" href="{% url 'professor' %}">Professor</a></li>
+                  <li><a class="dropdown-item" href="{% url 'student' %}">student</a></li>
+                  <li><a class="dropdown-item" href="{% url 'alumni' %}">alumni</a></li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="{% url 'publications' %}">Publications</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link active" href="{% url 'news' %}">news</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="{% url 'library' %}">Board</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link disabled">Disabled</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+{% endblock %}
+
+{% block body %}
+    
+    <!-- head summary -->
+    <div id="head">
+        <div class="bg">
+            <div>
+                <h1 class="text">News</h1>
+            </div>
+        </div>
+    </div>
+
+    <!-- main -->
+    <main class="main-container">
+        <article class="news-container">
+          <div class="event-container">
+          <div class="year-column col-lg-4">
+            <h3>2021</h3>
+          </div>
+          <hr>
+          <div class="student-container">
+            <div class="screen">
+              <div class="event-description">교수님 생신 (February 23, 2021)</div>
+              <img class="bd-placeholder-img" width="Automatically" height="240" src="{% static 'images/news/professor_birthday(2021).jpg' %}" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".3em"></text></svg>
+            </div>
+              <div class="screen">
+                <div class="event-description">졸업식 (August 24, 2021)</div>
+                <img class="bd-placeholder-img" width="Automatically" height="240" src="{% static 'images/news/graduation(2021).jpg' %}" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".3em"></text></svg>
+              </div>
+              <div class="screen">
+                <div class="event-description">생일 (November 13, 2021)</div>
+                <img class="bd-placeholder-img" width="Automatically" height="240" src="{% static 'images/news/birthday(2021).jpg' %}" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".3em"></text></svg>
+              </div>
+              <div class="screen">
+                <div class="event-description">학술대회 시상식 참여 (November 13, 2021)</div>
+                <img class="bd-placeholder-img" width="Automatically" height="240" src="{% static 'images/news/conference(2021).jpg' %}" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".3em"></text></svg>
+              </div>
+          </div>
+          </div>
+        </article>
+    </main>
+{% endblock %}

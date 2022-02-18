@@ -1,0 +1,165 @@
+{% extends "layout.html" %}
+
+{% block link %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'src/scss/library.css' %}" />
+{% endblock %}
+
+{% block header %}
+    <!-- header -->
+    <header>
+      <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark shadow">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="{% url 'main' %}">CAI LAB.</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav me-auto mb-2 mb-md-0">
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="{% url 'main' %}">Home</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="dropdown05" data-bs-toggle="dropdown" aria-expanded="false">People</a>
+                <ul class="dropdown-menu" aria-labelledby="dropdown05">
+                  <li><a class="dropdown-item" href="{% url 'professor' %}">Professor</a></li>
+                  <li><a class="dropdown-item" href="{% url 'student' %}">student</a></li>
+                  <li><a class="dropdown-item" href="{% url 'alumni' %}">alumni</a></li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="{% url 'publications' %}">Publications</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="{% url 'news' %}">news</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link active" href="{% url 'library' %}">Board</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link disabled">Disabled</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+{% endblock %}
+
+{% block body %}
+<!-- head summary -->
+<div id="head">
+    <div class="bg">
+        <div>
+            <h1 class="text">Board</h1>
+        </div>
+    </div>
+</div>
+    <!-- 게시판 -->
+    <div class="board-container p-4 h-screen">
+        <h3 class="text-xl mb-2">강의 자료실</h3>
+        <div class="text-x1 mb-4">
+        </div>
+        <div class="overflow-auto table-container hidden md:block">
+            <table class="table w-full">
+                <thead class="bg-gray-50 border-b-2 border-gray-200">
+                <tr>
+                    <th class="p-3 text-sm font-semibold tracking-wide text-left">번호</th>
+                    <th class="p-3 text-sm font-semibold tracking-wide text-center">제목</th>
+                    <th class="p-3 text-sm font-semibold tracking-wide text-center">작성자</th>
+                    <th class="p-3 text-sm font-semibold tracking-wide text-center">작성일</th>
+                </tr>
+                </thead>
+                <tbody>
+                    {% if posts %}
+                    {% for post in posts %}
+                    <tr class="bg-gray-50">
+                        <td class="id-line p-3 text-sm whitespace-nowrap font-semibold">
+                            {{post.id}}
+                        </td>
+                        <td class="p-3 text-sm font-semibold" style="cursor:pointer;" onClick="location.href='{{post.get_absolute_url}}'">
+                            <a class="article-subject" href="{{ post.get_absolute_url }}">{{post.title}}</a>
+                        </td>
+                        <td class="p-3 text-sm font-semibold text-center">관리자</td>
+                        <td class="p-3 text-sm font-semibold text-center">{{post.modify_date_form}}</td>
+                    </tr>
+                    {% endfor %}
+                    {% else %}
+                    <tr >
+                        <td colspan="4" class="text-center">질문이 없습니다. </td>
+                    </tr>
+                    {% endif %}
+                </tbody>
+            </table>
+        </div>
+
+        <div class="board-grid-container grid grid-cols-1 gap-4">
+            <div>
+                <div class="tbody-container flex items-center space-x-2 text-sm">
+
+                        {% if posts %}
+                        {% for post in posts %}
+                        <td class="list-title">
+                        <a class="article-container" href="{{ post.get_absolute_url }}">
+                        <div class="table-content-container">
+                            <div class="bg-gray-50">
+                                {{post.title}}
+                            </div>
+                            <div class="extra-contents">
+                                <span class="text-sm"> 관리자 </span>
+                                <span> | </span> 
+                                <span>{{post.modify_date_form}}</span>
+                            </div>   
+                        </div>
+                        </a>
+                        </td>
+                        {% endfor %}
+                        {% else %}
+                        <tr>
+                            <td colspan="3">질문이 없습니다. </td>
+                        </tr>
+                        {% endif %}
+
+                </div>
+            </div>
+        </div>
+
+    <!-- 페이징처리 시작 -->
+    <ul class="pagination justify-content-center">
+        <!-- 이전페이지 -->
+        {% if posts.has_previous %}
+        <li class="page-item">
+            <a class="page-link" href="?page={{ posts.previous_page_number }}">이전</a>
+        </li>
+        {% else %}
+        <li class="page-item disabled">
+            <a class="page-link" tabindex="-1" aria-disabled="true" href="#">이전</a>
+        </li>
+        {% endif %}
+        <!-- 페이지리스트 -->
+        {% for page_number in posts.paginator.page_range %}
+            {% if page_number == posts.number %}
+            <li class="page-item active" aria-current="page">
+                <a class="page-link" href="?page={{ page_number }}">{{ page_number }}</a>
+            </li>
+            {% else %}
+            <li class="page-item">
+                <a class="page-link" href="?page={{ page_number }}">{{ page_number }}</a>
+            </li>
+            {% endif %}
+        {% endfor %}
+        <!-- 다음페이지 -->
+        {% if posts.has_next %}
+        <li class="page-item">
+            <a class="page-link" href="?page={{ posts.next_page_number }}">다음</a>
+        </li>
+        {% else %}
+        <li class="page-item disabled">
+            <a class="page-link" tabindex="-1" aria-disabled="true" href="#">다음</a>
+        </li>
+        {% endif %}
+    </ul>
+    <!-- 페이징처리 끝 -->
+
+    </div>
+{% endblock %}

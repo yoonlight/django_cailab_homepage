@@ -1,0 +1,344 @@
+{% extends "layout.html" %}
+
+{% block link %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'src/scss/alumni.css' %}" />
+{% endblock %}
+
+{% block header %}
+    <!-- header -->
+    <header>
+      <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark shadow">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="{% url 'main' %}">CAI LAB.</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav me-auto mb-2 mb-md-0">
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="{% url 'main' %}">Home</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle active" href="#" id="dropdown05" data-bs-toggle="dropdown" aria-expanded="false">People</a>
+                <ul class="dropdown-menu" aria-labelledby="dropdown05">
+                  <li><a class="dropdown-item" href="{% url 'professor' %}">Professor</a></li>
+                  <li><a class="dropdown-item" href="{% url 'student' %}">student</a></li>
+                  <li><a class="dropdown-item" href="{% url 'alumni' %}">alumni</a></li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="{% url 'publications' %}">Publications</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="{% url 'news' %}">news</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="{% url 'library' %}">Board</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link disabled">Disabled</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+{% endblock %}
+
+{% block body %}
+    <!-- head summary -->
+    <div id="head">
+        <div class="bg">
+            <div>
+                <h1 class="text">Alumni</h1>
+            </div>
+        </div>
+    </div>
+
+    <!--main contents-->
+    <main class="main-container">
+      <div class="phd-list-container">
+        <h3>Ph.D.</h3>
+        <hr>
+        <div>
+            <ol class="phd-list">
+              <li class="phd-student">
+                <span>
+                  Issac Sim
+                  <br>
+                  &nbsp; &nbsp; &nbsp;
+                  <b>Ph.D.</b>
+                  Dept. of Elctronic Convergence Engineering, Kwangwoon University, 2022
+                  <br>
+                  &nbsp; &nbsp; &nbsp;
+                  <b>Current</b>
+                  Stiilll, 2022
+                  <hr>
+                </span>
+              </li>
+              <li class="phd-student">
+                <span>
+                  Yu Min Hwang
+                  <br>
+                  &nbsp; &nbsp; &nbsp;
+                  <b>Ph.D.</b>
+                  Dept. of Elctronic Convergence Engineering, Kwangwoon University, 2018
+                  <br>
+                  &nbsp; &nbsp; &nbsp;
+                  <b>Current</b>
+                  Electronics and Telecommunications Research Institute (ETRI), 2020
+                  <hr>
+                </span>
+              </li>
+              <li class="phd-student">
+                <span>
+                  Sun Yui Lee
+                  <br>
+                  &nbsp; &nbsp; &nbsp;
+                  <b>Ph.D.</b>
+                  Dept. of Elctronic Convergence Engineering, Kwangwoon University, 2018
+                  <br>
+                  &nbsp; &nbsp; &nbsp;
+                  <b>Current</b>
+                  Chief Executive Officer of EE Corporation(founded)), 2018
+                  <hr>
+                </span>
+              </li>
+              <li class="phd-student">
+                <span>
+                  Bong Youl Cho
+                  <br>
+                  &nbsp; &nbsp; &nbsp;
+                  <b>Ph.D.</b>
+                  Dept. of Elctronic Convergence Engineering, Kwangwoon University, 2011
+                  <br>
+                  &nbsp; &nbsp; &nbsp;
+                  <b>Current</b>
+                  Nokia-Siemens, 2011
+                  <hr>
+                </span>
+              </li>
+              <li class="phd-student">
+                <span>
+                  Eun Cheol Kim
+                  <br>
+                  &nbsp; &nbsp; &nbsp;
+                  <b>Ph.D.</b>
+                  Dept. of Elctronic Convergence Engineering, Kwangwoon University, 2010
+                  <br>
+                  &nbsp; &nbsp; &nbsp;
+                  <b>Current</b>
+                  LG Electronics, 2020
+                  <hr>
+                </span>
+              </li>
+            </ol>
+        </div>
+      </div>
+      <div class="master-list-container">
+        <h3>M.S.</h3>
+        <hr>
+          <div class="master-list">
+            <ol class="master-list">
+              <li class="master-student">
+                <span>
+                  Ji Young Lee
+                  <br>
+                  &nbsp; &nbsp; &nbsp;
+                  <b>M.S.</b>
+                  Dept. of Elctronic Convergence Engineering, Kwangwoon University, 2022
+                  <br>
+                  &nbsp; &nbsp; &nbsp;
+                  <b>Current</b>
+                  Samsung Electronics, 2022
+                  <hr>
+                </span>
+              </li>
+              <li class="master-student">
+                <span>
+                  Dong Gu Lee
+                  <br>
+                  &nbsp; &nbsp; &nbsp;
+                  <b>M.S.</b>
+                  Dept. of Elctronic Convergence Engineering, Kwangwoon University, 2021
+                  <br>
+                  &nbsp; &nbsp; &nbsp;
+                  <b>Current</b>
+                  University of Texas at Dallas, 2022
+                  <hr>
+                </span>
+              </li>
+              <li class="master-student">
+                <span>
+                  Seung Gwan Hong
+                  <br>
+                  &nbsp; &nbsp; &nbsp;
+                  <b>M.S.</b>
+                  Dept. of Elctronic Convergence Engineering, Kwangwoon University, 2018
+                  <br>
+                  &nbsp; &nbsp; &nbsp;
+                  <b>Current</b>
+                  KT, 2021
+                  <hr>
+                </span>
+              </li>
+              <li class="master-student">
+                <span>
+                  Jun Hee Jung
+                  <br>
+                  &nbsp; &nbsp; &nbsp;
+                  <b>M.S.</b>
+                  Dept. of Elctronic Convergence Engineering, Kwangwoon University, 2017
+                  <br>
+                  &nbsp; &nbsp; &nbsp;
+                  <b>Current</b>
+                  Hyundai Autoever, 2017
+                  <hr>
+                </span>
+              </li>
+              <li class="master-student">
+                <span>
+                  Gyeong Hyeon Cha 
+                  <br>
+                  &nbsp; &nbsp; &nbsp;
+                  <b>M.S.</b>
+                  Dept. of Elctronic Convergence Engineering, Kwangwoon University, 2016
+                  <br>
+                  &nbsp; &nbsp; &nbsp;
+                  <b>Current</b>
+                  Agency for Defense Developnment(ADD), 2016
+                  <hr>
+                </span>
+              </li>
+              <li class="master-student">
+                <span>
+                  Kyung Ho Kim
+                  <br>
+                  &nbsp; &nbsp; &nbsp;
+                  <b>M.S</b>
+                  Dept. of Elctronic Convergence Engineering, Kwangwoon University, 2016
+                  <br>
+                  &nbsp; &nbsp; &nbsp;
+                  <b>Current</b>
+                  Netmable, 2016
+                  <hr>
+                </span>
+              </li>
+              <li class="master-student">
+                <span>
+                  Yu Chan Song
+                  <br>
+                  &nbsp; &nbsp; &nbsp;
+                  <b>M.S.</b>
+                  Dept. of Elctronic Convergence Engineering, Kwangwoon University, 2016
+                  <br>
+                  &nbsp; &nbsp; &nbsp;
+                  <b>Current</b>
+                  State University of New York, 2016
+                  <hr>
+                </span>
+              </li>
+              <li class="master-student">
+                <span>
+                  Ji Ho Park
+                  <br>
+                  &nbsp; &nbsp; &nbsp;
+                  <b>M.S.</b>
+                  Dept. of Elctronic Convergence Engineering, Kwangwoon University, 2016
+                  <br>
+                  &nbsp; &nbsp; &nbsp;
+                  <b>Current</b>
+                  Korean Air, 2016
+                  <hr>
+                </span>
+              </li>
+              <li class="master-student">
+                <span>
+                  Ju Hyun Park
+                  <br>
+                  &nbsp; &nbsp; &nbsp;
+                  <b>M.S.</b>
+                  Dept. of Elctronic Convergence Engineering, Kwangwoon University, 2015
+                  <br>
+                  &nbsp; &nbsp; &nbsp;
+                  <b>Current</b>
+                  LG CNS, 2015
+                  <hr>
+                </span>
+              </li>
+              <li class="master-student">
+                <span>
+                  Young Sik Park
+                  <br>
+                  &nbsp; &nbsp; &nbsp;
+                  <b>M.S.</b>
+                  Dept. of Elctronic Convergence Engineering, Kwangwoon University, 2015
+                  <br>
+                  &nbsp; &nbsp; &nbsp;
+                  <b>Current</b>
+                  Agency for Defense Development(ADD), 2015
+                  <hr>
+                </span>
+              </li>
+              <li class="master-student">
+                <span>
+                  Jomg Kwan Seo
+                  <br>
+                  &nbsp; &nbsp; &nbsp;
+                  <b>M.S.</b>
+                  Dept. of Elctronic Convergence Engineering, Kwangwoon University, 2014
+                  <br>
+                  &nbsp; &nbsp; &nbsp;
+                  <b>Current</b>
+                  Enernet, 2014
+                  <hr>
+                </span>
+              </li>
+              <li class="master-student">
+                <span>
+                  Ju Young Oh
+                  <br>
+                  &nbsp; &nbsp; &nbsp;
+                  <b>M.S.</b>
+                  Dept. of Elctronic Convergence Engineering, Kwangwoon University, 2013
+                  <br>
+                  &nbsp; &nbsp; &nbsp;
+                  <b>Current</b>
+                  poongsan, 2013
+                  <hr>
+                </span>
+              </li>
+              <li class="master-student">
+                <span>
+                  Jung Nam Bae
+                  <br>
+                  &nbsp; &nbsp; &nbsp;
+                  <b>M.S.</b>
+                  Dept. of Elctronic Convergence Engineering, Kwangwoon University, 2011
+                  <br>
+                  &nbsp; &nbsp; &nbsp;
+                  <b>Current</b>
+                  Hyundai Motor, 2020
+                  <hr>
+                </span>
+              </li>
+              <li class="master-student">
+                <span>
+                  Sung Wan Koo
+                  <br>
+                  &nbsp; &nbsp; &nbsp;
+                  <b>M.S</b>
+                  Dept. of Elctronic Convergence Engineering, Kwangwoon University, 2010
+                  <br>
+                  &nbsp; &nbsp; &nbsp;
+                  <b>Current</b>
+                  LG U+, 2020
+                  <hr>
+                </span>
+              </li>
+            </ol>
+          </div>
+      </div>
+    </main>
+{% endblock %}

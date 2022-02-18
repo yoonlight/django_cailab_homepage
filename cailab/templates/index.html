@@ -1,0 +1,185 @@
+{% extends "layout.html" %}
+
+{% block link %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'src/scss/main.css' %}"/>
+{% endblock %}
+
+{% block header %}
+    <!-- header -->
+    <header>
+      <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark shadow">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="{% url 'main' %}">CAI LAB.</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav me-auto mb-2 mb-md-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="{% url 'main' %}">Home</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="dropdown05" data-bs-toggle="dropdown" aria-expanded="false">People</a>
+                <ul class="dropdown-menu" aria-labelledby="dropdown05">
+                  <li><a class="dropdown-item" href="{% url 'professor' %}">Professor</a></li>
+                  <li><a class="dropdown-item" href="{% url 'student' %}">student</a></li>
+                  <li><a class="dropdown-item" href="{% url 'alumni' %}">alumni</a></li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="{% url 'publications' %}">Publications</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="{% url 'news' %}">news</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="{% url 'library' %}">Board</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link disabled">Disabled</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+{% endblock %}
+
+{% block body %}
+    <!-- head summary -->
+    <div id="head">
+        <div class="bg">
+            <div>
+                <h1 class="text">Communications & Artificial Intelligence Laboratory</h1>
+            </div>
+        </div>
+    </div>
+
+    <!-- main contents -->
+    <div class="main">
+        <div class="introduction">
+            <p> Communications & Artificial Intelligence Lab (CAI Lab.)</p>
+            <p> 광운대학교 통신 인공지능 연구실에 오신 것을 환영합니다.</p>
+        </div>
+
+        <div class="container marketing">
+            <!-- START THE FEATURETTES -->
+            <hr class="featurette-divider">
+            <div class="lab-intro-container row featurette">
+              <div class="col-md-7">
+                <h2 class="lab-introduction">통신 및 인공지능 연구실(CAI LAB.) 은 인공지능 융합기술을 연구합니다.<br><span class="h3 text-muted">4차 산업혁명 시대 핵심 기술</span></h2>
+                <p class="lead">CAI LAB. 에서는 세계적으로 주목받는 CNN 기반 이미지 처리, 추천 시스템 등 딥러닝 기술 및 통신 기술들 뿐만 아니라 산학연을 기반으로 메타버스에 관련한 최신 기술들을 연구하고 있습니다.</p>
+              </div>
+              <div class="intro-pic-container col-md-5">
+                <img src="{% static 'images/deep-learning.png' %}" class="intro-pic bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#eee"/><text x="50%" y="50%" fill="#aaa" dy=".3em"></text>
+              </div>
+            </div>
+            <hr class="featurette-divider">
+            <!-- Three columns of text below the carousel -->
+            <p class="area">RESEARCH AREA</p>
+
+            <div class="gallerylist">
+              <div>
+                <li>
+                  <a href="#">
+                    <div class="screen">
+                      <div class="top">딥러닝</div>
+                      <div class="bottom">Classification and regression are performed using a model that mimics the structure of the human brain based on big data.</div>
+                      <img src="{% static 'images/deeplearning.jpg' %}">
+                    </div>
+                    <div class="gallery-text-container">
+                      <h3>Deep Learning</h3>
+                      <p class="gallery-text">
+                        Classification and regression are performed using a model that mimics the structure of the human brain based on big data.
+                      </p>
+                    </div>
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
+                    <div class="screen">
+                      <div class="top">에너지 인터넷</div>
+                      <div class="bottom">Organize and analyze models for optimizing and trading decentralized energy resources such as smart grids and energy reallocation.</div>
+                      <img src="{% static 'images/IoE.jpg' %}">
+                    </div>
+                    <div class="gallery-text-container">
+                      <h3>Internet of Energy</h3>
+                      <p class="gallery-text">
+                        Organize and analyze models for optimizing and trading decentralized energy resources such as smart grids and energy reallocation.
+                      </p>
+                    </div>
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
+                    <div class="screen">
+                      <div class="top">스마트 헬스케어</div>
+                      <div class="bottom">Automatically classifying human disease types and diagnoses health conditions based on artificial intelligence techniques.</div>
+                      <img src="{% static 'images/healthcare.jpg' %}">
+                    </div>
+                    <div class="gallery-text-container">
+                      <h3>Smart Healthcare</h3>
+                      <p class="gallery-text">
+                        Automatically classifying human disease types and diagnoses health conditions based on artificial intelligence techniques.
+                      </p>
+                    </div>
+                  </a>
+                </li>
+              </div>
+            </div>
+            <div class="gallerylist">
+              <div>
+                <li>
+                  <a href="#">
+                    <div class="screen">
+                      <div class="top">추천 시스템</div>
+                      <div class="bottom">The recommendation system can return customized content and search results by analyzing various user information.</div>
+                      <img src="{% static 'images/recommendation.png' %}">
+                    </div>
+                    <div class="gallery-text-container">
+                      <h3>Recommender System</h3>
+                      <p class="gallery-text">
+                        The recommendation system can return customized content and search results by analyzing various user information.
+                      </p>
+                    </div>
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
+                    <div class="screen">
+                      <div class="top">사물 인터넷</div>
+                      <div class="bottom">Technologies are researched that can be used in industrial places where various devices are connected.</div>
+                      <img src="{% static 'images/IOT.jpg' %}">
+                    </div>
+                    <div class="gallery-text-container">
+                      <h3>Internet of Things</h3>
+                      <p class="gallery-text">
+                        Technologies are researched that can be used in industrial places where various devices are connected.
+                      </p>
+                    </div>
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
+                    <div class="screen">
+                      <div class="top">위성통신</div>
+                      <div class="bottom">In preparation for the 6G era, artificial intelligence-based communication and optimization analysis are being researched.</div>
+                      <img src="{% static 'images/satellite.jpg' %}">
+                    </div>
+                    <div class="gallery-text-container">
+                      <h3>Satellite Communications</h3>
+                      <p class="gallery-text">
+                        In preparation for the 6G era, artificial intelligence-based communication and optimization analysis are being researched.
+                      </p>
+                    </div>
+                  </a>
+                </li>
+              </div>
+            </div>
+            </div>
+
+    </div>
+    </div>
+
+{% endblock %}
