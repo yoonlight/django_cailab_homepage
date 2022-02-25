@@ -6,7 +6,7 @@ def preprocessing_journal_data(recent_years=2017):
     def check_whitespace(string):
         return string.isspace()
 
-    sci_journals = pd.DataFrame(pd.read_csv("E:\Github_project/web_dev/django_webpage/data/international_journals.csv"))
+    sci_journals = pd.DataFrame(pd.read_csv("./data/international_journals.csv"))
     se = sci_journals['international']
     regex = "\[.*\]|\s-\s.*"
     se_list = list(se)

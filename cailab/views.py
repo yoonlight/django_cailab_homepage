@@ -1,10 +1,12 @@
 from django.http import request
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from .models import Category, Post, Biography
 from django.views.generic import DetailView
 from django.core.paginator import Paginator
 import os
 from .utils import *
+from hitcount.views import HitCountDetailView
+from hitcount.models import HitCount
 
 # Create your views here.
 def index(req):
@@ -44,8 +46,10 @@ def seminar(req):
 class BiographyDetailView(DetailView):
     model = Biography
 
-class PostDetailView(DetailView):
+class PostDetailView(HitCountDetailView):
     model = Post
+    count_hit = True
+    template = 'post_detail.html'
 
     def get_context_data(self, **kwargs):
         context = super(PostDetailView, self).get_context_data(**kwargs)

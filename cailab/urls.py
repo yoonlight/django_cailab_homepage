@@ -1,6 +1,5 @@
 from django.urls import path
 from cailab import views
-from django.conf.urls import url
 
 urlpatterns = [
     path("", views.index, name="main"),

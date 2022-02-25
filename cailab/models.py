@@ -1,12 +1,8 @@
 from django.db import models
 from django.urls import reverse
-from django.utils.dateformat import DateFormat
-from datetime import datetime
-from django import forms
-
-class UploadFileForm(forms.Form):
-    name = forms.CharField(max_length=15)
-    files = forms.FileField(widget=forms.ClearableFileInput(attrs={'multiple': True}))
+from hitcount.models import HitCountMixin
+from django.contrib.contenttypes.fields import GenericRelation
+from hitcount.settings import MODEL_HITCOUNT
 
 # Create your models here.
 class Category(models.Model):
@@ -32,12 +28,13 @@ class Biography(models.Model):
     def get_absolute_url(self):
         return reverse("student", args=[str(self.id)])
 
-class Post(models.Model):
+class Post(models.Model, HitCountMixin):
     title = models.CharField(max_length=200)
     files = models.FileField(blank=True, upload_to='files/')
     content = models.TextField()
     createDate = models.DateTimeField(auto_now_add=True)
     updateDate = models.DateTimeField(auto_now_add=True)
+    hit_count_generic = GenericRelation(MODEL_HITCOUNT, object_id_field='object_pk', related_query_name='hit_count_generic_relation')
 
     def __str__(self):
         return self.title
@@ -48,4 +45,9 @@ class Post(models.Model):
     def modify_date_form(self):
         date = str.split(str(self.createDate))
         return date[0]
+    
+    # @property
+    # def update_counter(self):
+    #     self.hits = self.hits + 1
+    #     self.save()
     
