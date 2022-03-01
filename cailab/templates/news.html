@@ -20,6 +20,13 @@
                 <a class="nav-link" aria-current="page" href="{% url 'main' %}">Home</a>
               </li>
               <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="dropdown05" data-bs-toggle="dropdown" aria-expanded="false">Research</a>
+                <ul class="dropdown-menu" aria-labelledby="dropdown05">
+                  <li><a class="dropdown-item" href="{% url 'projects' %}">Projects</a></li>
+                  <li><a class="dropdown-item" href="{% url 'area' %}">Area</a></li>
+                </ul>
+              </li>
+              <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="dropdown05" data-bs-toggle="dropdown" aria-expanded="false">People</a>
                 <ul class="dropdown-menu" aria-labelledby="dropdown05">
                   <li><a class="dropdown-item" href="{% url 'professor' %}">Professor</a></li>

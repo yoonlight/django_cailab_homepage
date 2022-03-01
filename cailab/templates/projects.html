@@ -3,6 +3,8 @@
 {% block link %}
 {% load static %}
 <link rel="stylesheet" href="{% static 'src/scss/publications.css' %}" />
+<link rel="stylesheet" href="{% static 'src/assets/dist/css/bootstrap.min.css' %}"/>
+<script src="{%static 'src/assets/dist/js/bootstrap.min.js'%}"></script>
 {% endblock %}
 
 {% block header %}
@@ -20,7 +22,7 @@
                 <a class="nav-link" aria-current="page" href="{% url 'main' %}">Home</a>
               </li>
               <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="dropdown05" data-bs-toggle="dropdown" aria-expanded="false">Research</a>
+                <a class="nav-link dropdown-toggle active" href="#" id="dropdown05" data-bs-toggle="dropdown" aria-expanded="false">Research</a>
                 <ul class="dropdown-menu" aria-labelledby="dropdown05">
                   <li><a class="dropdown-item" href="{% url 'projects' %}">Projects</a></li>
                   <li><a class="dropdown-item" href="{% url 'area' %}">Area</a></li>
@@ -35,7 +37,7 @@
                 </ul>
               </li>
               <li class="nav-item">
-                  <a class="nav-link active" href="{% url 'publications' %}">Publications</a>
+                  <a class="nav-link" href="{% url 'publications' %}">Publications</a>
               </li>
               <li class="nav-item">
                   <a class="nav-link" href="{% url 'news' %}">news</a>
@@ -54,49 +56,83 @@
 {% endblock %}
 
 {% block body %}
+
+<style>
+    .project-img{
+        transition: all 0.2s linear;
+    }
+    .project-img:hover{
+        transform: scale(1.2);
+    }
+
+    .card-title{
+        font-weight: 600;
+    }
+
+    .main-container{
+        margin-top: 100px;
+    }
+    .card-body{
+        box-shadow: 0 0 10px 4px rgba(0,0,0,0.1);
+    }
+
+    .card-body a{
+        color: #0d3238;
+        text-decoration: none;
+        font-size: 1rem;
+        margin-top: auto;
+        font-weight: 600;
+        transition: 0.3s;
+    }
+
+    .card-body a:hover{
+        color:#63a6b0;
+        text-decoration: underline;
+    }
+
+    .project-container{
+        width: 60%;
+    }
+    @media screen and (max-width: 1400px) {
+        .project-container{
+            width: 90%;
+        }
+    }
+
+</style>
     <!-- head summary -->
     <div id="head">
         <div class="bg">
             <div>
-                <h1 class="text">Publications</h1>
+                <h1 class="text">Projects</h1>
             </div>
         </div>
     </div>
 
-    <main class="main-container">
-      <section>
-        <div class="publication-list-container">
-          <h3 class="SCI-title">International Journals (SCI)
-            <hr>
-          </h3>
-          {% for pub in data %}
-          <div>
-              <div class="publication-list">
-                <strong>{{forloop.counter}}.</strong> 
-                <span class="publication-content">{{pub}}</span>
-              </div>
-          </div>
-          {% endfor %}
-      </section>
-      <section>
-        <div class="publication-list-container">
-          <h3 class="KCI-title" style="margin-bottom: 50px;">Korean Journals (KCI)
-            <hr>
-          </h3>
-          {% for kci_pub in kci_data %}
-          <div>
-              <div class="publication-list">
-                <strong>{{forloop.counter}}.</strong> 
-                <span class="publication-content">{{kci_pub}}</span>
-              </div>
-          </div>
-          {% endfor %}
-        </div>
-      </section>
-      </div>
-    </main>
+    <!-- main -->
+    <div>
+        <article style="margin-top: 100px;">
+            {% if projects %}            
+            <div class="project-container row mb-3" style="word-break: break-all; margin: 0 auto;">
+            {% for project in projects %}
+                <div class="col-md-4" style="margin-bottom: 50px;">
+                    <div class="card-text-center">
+                        <a href="{{ project.get_absolute_url }}" class="project-img"  style="height: 12rem; width: 100%; display: block;">
+                            <img src="{{project.images.url}}" class="card-img-top" style="height: 12rem;">
+                        </a>
+                        <div class="card-body">
+                            <a class="title-container" href="{{ project.get_absolute_url }}">
+                                <h5 class="card-title"">{{project.title}}</h5>
+                            </a>
+                            <br>
+                            <small class="project-date">{{project.project_strat_date}}~{{project.project_end_date}}|{{project.support_institue}}</small>
+                        </div>
+                    </div>
+                </div>
+            {% endfor%}
+            </div>
+            {% endif %}
+        </article>
+    </div>
     
-    <!-- scripts -->
-    <script src="{% static 'js/slide.js' %}"></script>
-    <script src="{% static 'js/popup.js' %}"></script>
 {% endblock %}

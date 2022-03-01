@@ -200,6 +200,9 @@ header nav .container-fluid .disabled {
 }
 
 @media screen and (max-width: 1060px) {
+  body .post-container {
+    width: 90%;
+  }
   .board-container {
     width: 100%;
   }

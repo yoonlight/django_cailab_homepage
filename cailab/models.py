@@ -11,6 +11,26 @@ class Category(models.Model):
     def __str__(self):
         return self.name
 
+class Projects(models.Model):
+    title = models.CharField("프로젝트 제목", max_length=300, default=str)
+    images = models.ImageField(upload_to="projects")
+    content = models.TextField("프로젝트 요약")
+    support_department = models.CharField("주관부서", max_length=40, default=str, blank=True)
+    support_institue = models.CharField("지원기관", max_length=40, default=str, null=False)
+    host_institute = models.CharField("주관기관", max_length=40, default=str, null=False)
+    project_strat_date = models.DateField('프로젝트 시작일', null=False)
+    project_end_date = models.DateField('프로젝트 종료일', null=False)
+
+    def __str__(self):
+        return self.title
+    
+    def get_absolute_url(self):
+        return reverse("projects", args=[str(self.id)])
+    
+    def split_word(self):
+        split_content = str.split(self.content, '-')
+        return split_content
+
 class Biography(models.Model):
     kr_name = models.CharField(max_length=20, default=str)
     eng_name = models.CharField(max_length=200, default=str)

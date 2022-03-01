@@ -20,7 +20,7 @@
                 <a class="nav-link" aria-current="page" href="{% url 'main' %}">Home</a>
               </li>
               <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="dropdown05" data-bs-toggle="dropdown" aria-expanded="false">Research</a>
+                <a class="nav-link dropdown-toggle active" href="#" id="dropdown05" data-bs-toggle="dropdown" aria-expanded="false">Research</a>
                 <ul class="dropdown-menu" aria-labelledby="dropdown05">
                   <li><a class="dropdown-item" href="{% url 'projects' %}">Projects</a></li>
                   <li><a class="dropdown-item" href="{% url 'area' %}">Area</a></li>
@@ -35,7 +35,7 @@
                 </ul>
               </li>
               <li class="nav-item">
-                  <a class="nav-link active" href="{% url 'publications' %}">Publications</a>
+                  <a class="nav-link" href="{% url 'publications' %}">Publications</a>
               </li>
               <li class="nav-item">
                   <a class="nav-link" href="{% url 'news' %}">news</a>
@@ -58,7 +58,7 @@
     <div id="head">
         <div class="bg">
             <div>
-                <h1 class="text">Publications</h1>
+                <h1 class="text">Research Area</h1>
             </div>
         </div>
     </div>
@@ -66,37 +66,11 @@
     <main class="main-container">
       <section>
         <div class="publication-list-container">
-          <h3 class="SCI-title">International Journals (SCI)
+          <h3 class="projects-container" style="margin-bottom: 50px;">Projects
             <hr>
           </h3>
-          {% for pub in data %}
-          <div>
-              <div class="publication-list">
-                <strong>{{forloop.counter}}.</strong> 
-                <span class="publication-content">{{pub}}</span>
-              </div>
-          </div>
-          {% endfor %}
-      </section>
-      <section>
-        <div class="publication-list-container">
-          <h3 class="KCI-title" style="margin-bottom: 50px;">Korean Journals (KCI)
-            <hr>
-          </h3>
-          {% for kci_pub in kci_data %}
-          <div>
-              <div class="publication-list">
-                <strong>{{forloop.counter}}.</strong> 
-                <span class="publication-content">{{kci_pub}}</span>
-              </div>
-          </div>
-          {% endfor %}
         </div>
       </section>
-      </div>
     </main>
     
-    <!-- scripts -->
-    <script src="{% static 'js/slide.js' %}"></script>
-    <script src="{% static 'js/popup.js' %}"></script>
 {% endblock %}

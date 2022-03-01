@@ -14,4 +14,7 @@ urlpatterns = [
     path("library/<int:pk>", views.PostDetailView.as_view(), name="post"),
     path("seminar", views.seminar, name="seminar"),
     path("applications", views.applications, name="applications"),
+    path("projects", views.projects, name="projects"),
+    path("projects/<int:pk>", views.ProjectDetailView.as_view(), name="projects"),
+    path("area", views.area, name="area"),
 ]

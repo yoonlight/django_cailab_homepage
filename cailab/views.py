@@ -1,12 +1,10 @@
 from django.http import request
 from django.shortcuts import redirect, render
-from .models import Category, Post, Biography
+from .models import Post, Biography, Projects
 from django.views.generic import DetailView
 from django.core.paginator import Paginator
-import os
 from .utils import *
 from hitcount.views import HitCountDetailView
-from hitcount.models import HitCount
 
 # Create your views here.
 def index(req):
@@ -14,7 +12,8 @@ def index(req):
 
 def publications(req):
     pub_list = preprocessing_journal_data()
-    context = {'data': pub_list}
+    kci_list = preprocessing_korean_journal_data()
+    context = {'data': pub_list, 'kci_data': kci_list}
     return render(req, "publications.html", context=context)
 
 def professor(req):
@@ -26,6 +25,13 @@ def applications(req):
 def student(req):
     biographies = Biography.objects.all()
     return render(req, "student.html", {'biographies': biographies})
+
+def projects(req):
+    projects = Projects.objects.all()
+    return render(req, "projects.html", {'projects':projects})
+
+def area(req):
+    return render(req, "area.html")
 
 def news(req):
     return render(req, "news.html")
@@ -45,6 +51,9 @@ def seminar(req):
 
 class BiographyDetailView(DetailView):
     model = Biography
+
+class ProjectDetailView(DetailView):
+    model = Projects
 
 class PostDetailView(HitCountDetailView):
     model = Post
