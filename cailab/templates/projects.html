@@ -58,11 +58,15 @@
 {% block body %}
 
 <style>
+    .inner{
+        overflow: hidden;
+    }
+
     .project-img{
-        transition: all 0.2s linear;
+        transition: all 0.5s ease;
     }
     .project-img:hover{
-        transform: scale(1.2);
+        transform: scale(1.5);
     }
 
     .card-title{
@@ -117,9 +121,12 @@
             {% for project in projects %}
                 <div class="col-md-4" style="margin-bottom: 50px;">
                     <div class="card-text-center">
-                        <a href="{{ project.get_absolute_url }}" class="project-img"  style="height: 12rem; width: 100%; display: block;">
-                            <img src="{{project.images.url}}" class="card-img-top" style="height: 12rem;">
-                        </a>
+                        <div class="inner">
+                            <a href="{{ project.get_absolute_url }}" class="project-img"  style="height: 12rem; width: 100%; display: block;">
+                                <img src="{{project.images.url}}" class="card-img-top" style="height: 12rem;">
+                            </a>
+                        </div>
+
                         <div class="card-body">
                             <a class="title-container" href="{{ project.get_absolute_url }}">
                                 <h5 class="card-title"">{{project.title}}</h5>

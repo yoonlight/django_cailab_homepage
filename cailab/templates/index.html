@@ -82,14 +82,14 @@
                 <img src="{% static 'images/deep-learning.png' %}" class="intro-pic bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#eee"/><text x="50%" y="50%" fill="#aaa" dy=".3em"></text>
               </div>
             </div>
+
             <hr class="featurette-divider">
             <!-- Three columns of text below the carousel -->
             <p class="area">RESEARCH AREA</p>
-
             <div class="gallerylist">
               <div>
                 <li>
-                  <a href="#">
+                  <a href="{% url 'area' %}">
                     <div class="screen">
                       <div class="top">딥러닝</div>
                       <div class="bottom">Classification and regression are performed using a model that mimics the structure of the human brain based on big data.</div>
@@ -104,7 +104,7 @@
                   </a>
                 </li>
                 <li>
-                  <a href="#">
+                  <a href="{% url 'area' %}">
                     <div class="screen">
                       <div class="top">에너지 인터넷</div>
                       <div class="bottom">Organize and analyze models for optimizing and trading decentralized energy resources such as smart grids and energy reallocation.</div>
@@ -119,7 +119,7 @@
                   </a>
                 </li>
                 <li>
-                  <a href="#">
+                  <a href="{% url 'area' %}">
                     <div class="screen">
                       <div class="top">스마트 헬스케어</div>
                       <div class="bottom">Automatically classifying human disease types and diagnoses health conditions based on artificial intelligence techniques.</div>
@@ -138,7 +138,7 @@
             <div class="gallerylist">
               <div>
                 <li>
-                  <a href="#">
+                  <a href="{% url 'area' %}">
                     <div class="screen">
                       <div class="top">추천 시스템</div>
                       <div class="bottom">The recommendation system can return customized content and search results by analyzing various user information.</div>
@@ -153,7 +153,7 @@
                   </a>
                 </li>
                 <li>
-                  <a href="#">
+                  <a href="{% url 'area' %}">
                     <div class="screen">
                       <div class="top">사물 인터넷</div>
                       <div class="bottom">Technologies are researched that can be used in industrial places where various devices are connected.</div>
@@ -168,7 +168,7 @@
                   </a>
                 </li>
                 <li>
-                  <a href="#">
+                  <a href="{% url 'area' %}">
                     <div class="screen">
                       <div class="top">위성통신</div>
                       <div class="bottom">In preparation for the 6G era, artificial intelligence-based communication and optimization analysis are being researched.</div>
