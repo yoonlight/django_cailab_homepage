@@ -19,3 +19,9 @@ docker build . -t cai
 ```shell
 docker run -dp 8000:8000 cai
 ```
+
+### use docker-compose
+
+```shell
+docker-compose up -d
+```
